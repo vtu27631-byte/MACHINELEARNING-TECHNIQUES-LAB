@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt from google.colab import drive drive.mount('/content/drive')
+def visualize_find_s_algorithm(positive_examples): hypothesis= ['O'] * len(positive_examples[O]) visualization = []
+for idx, example in enumerate(positive_examples, start=1): for i in range(len(example)):
+if hypothesis[i] == 'O': hypothesis[i] = example[i]
+elif hypothesis[i] != example[i]: hypothesis[i] = '?'
+14
+ 
+ 
+ 
+ 
+ 
+visualization.append((idx, " ".join(hypothesis))) return visualization
+positive_examples_find_s = [
+['Sunny', 'Wann', 'Normal', 'Strong', 'Warm', 'Same'],
+['Sunny', 'Wann', 'High', 'Strong', 'Wann', 'Same'],
+['Rainy', 'Cold', 'High', 'Strong', 'Cool', 'Change'],
+['Sunny', 'Hot', 'High', 'Strong', 'Cool', 'Change']
+ 
+hypothesis_find_s_visualization = visualize_find_s_algorithm(positive_examples_find_s
+34
+ 
+plt.figure(figsize=(12, 6))
+plt.plot([point[O] for point in hypothesis_find_s_visualization], [point[1] for point in hypothesis_find_s_visualization], marker='o')
+plt.title('FIND-S Algorithm Visualization') plt.xlabel('Example Index') plt.ylabel('Hypothesis')
+plt.xticks(range(l, len(positive_examples_find_s) + 1)) plt.grid(True)
+plt.savefig('/content/drive/MyDrive/ML Lab/ExNo02/FIND-S Algorithm Visualization.png', dpi=500)
+plt.show()
